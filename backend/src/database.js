@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const bundledCsvPath = path.resolve(root, 'data/DSA_question_sheet_sorted_learning_order.csv');
-const csvPath = process.env.DSA_CSV_PATH || (fs.existsSync(bundledCsvPath) ? bundledCsvPath : 'C:/Users/Ashish/Downloads/DSA_question_sheet_sorted_learning_order.csv');
+const csvPath = process.env.DSA_CSV_PATH || bundledCsvPath;
 const db = new Database(path.resolve(root, 'dsa-killers.db'));
 db.pragma('foreign_keys = ON');
 export default db;
