@@ -3,8 +3,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const bundledCsvPath = path.resolve(root, 'data/DSA_question_sheet_sorted_learning_order.csv');
+const __dirname = path.dirname(fileURLToPath(import.meta.url)); // backend/src
+const backendDir = path.resolve(__dirname, '..');              // backend/
+const root = path.resolve(__dirname, '../..');                 // monorepo root
+const bundledCsvPath = path.resolve(backendDir, 'data/DSA_question_sheet_sorted_learning_order.csv');
 const csvPath = process.env.DSA_CSV_PATH || bundledCsvPath;
 const db = new Database(path.resolve(root, 'dsa-killers.db'));
 db.pragma('foreign_keys = ON');
