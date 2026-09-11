@@ -1,0 +1,9 @@
+{
+  "name": "dsa-killers",
+  "private": true,
+  "type": "module",
+  "workspaces": ["backend", "frontend"],
+  "scripts": {"dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\"", "server": "npm run dev -w backend", "client": "npm run dev -w frontend", "build": "npm run build -w frontend", "db:migrate": "node scripts/migrate.mjs", "db:seed": "node scripts/seed.mjs"},
+  "dependencies": {"bcryptjs": "^2.4.3", "dotenv": "^16.4.7", "jsonwebtoken": "^9.0.2", "postgres": "^3.4.7"},
+  "devDependencies": {"concurrently": "^9.1.2"}
+}
